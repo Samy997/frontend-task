@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LayoutModule } from './layout/layout.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -29,9 +27,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       }
     }),
-    NgbModule,
-    LayoutModule,
-    DashboardModule
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

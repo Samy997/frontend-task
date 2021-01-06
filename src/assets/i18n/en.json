@@ -1,3 +1,10 @@
 {
-  "allRightsReserved": "All  Rights Reserved"
+  "profile": "Profile",
+  "accountSettings": "Account Settings",
+  "logout": "Logout",
+  "allRightsReserved": "All Rights Reserved",
+  "arabic": "عربي",
+  "english": "English",
+  "searchEmployees": "Search Employees",
+  "addEmployee": "Add Employee"
 }

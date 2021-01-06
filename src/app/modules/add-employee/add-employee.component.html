@@ -1,0 +1,70 @@
+<div class="container">
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- ANCHOR Employee Name -->
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field>
+          <mat-label>{{ 'employeeName' | translate }}</mat-label>
+          <input type="text" matInput formControlName="name" />
+          <mat-error>{{ 'validation.required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- ANCHOR Department Id -->
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field>
+          <mat-label>{{ 'department' | translate }}</mat-label>
+          <mat-select formControlName="departmentId" name="department">
+            <mat-option *ngIf="departments.length === 0" disabled>
+              {{ 'noData' | translate }}
+            </mat-option>
+            <mat-option
+              *ngFor="let department of departments"
+              [value]="department.value"
+            >
+              {{
+                locale === 'ar'
+                  ? department.viewValue.arabic
+                  : department.viewValue.english
+              }}
+            </mat-option>
+          </mat-select>
+          <mat-error>{{ 'validation.required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- ANCHOR Employee Code -->
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field>
+          <mat-label>{{ 'employeeCode' | translate }}</mat-label>
+          <input type="text" matInput formControlName="employeeCode" />
+          <mat-error>{{ 'validation.required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- ANCHOR Birthdate -->
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field>
+          <mat-label>{{ 'department' | translate }}</mat-label>
+
+          <input
+            matInput
+            [matDatepicker]="birthdatePicker"
+            placeholder="title"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="birthdatePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #birthdatePicker></mat-datepicker>
+
+          <mat-error>{{ 'validation.required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

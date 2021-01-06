@@ -3,21 +3,28 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LayoutRoutingModule } from './layout-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatTabsModule } from '@angular/material/tabs';
 
-const COMPONENTS = [LayoutComponent, NavbarComponent, FooterComponent];
+const COMPONENTS = [
+  LayoutComponent,
+  NavbarComponent,
+  FooterComponent,
+  SidebarComponent
+];
 
 @NgModule({
   imports: [
     CommonModule,
+    LayoutRoutingModule,
+    TranslateModule.forChild(),
     NgbModule,
     NgbDropdownModule,
-    // FontAwesomeModule,
-    TranslateModule.forChild()
+    MatTabsModule
   ],
-  declarations: [...COMPONENTS],
-  exports: [LayoutComponent]
+  declarations: [...COMPONENTS]
 })
 export class LayoutModule {}

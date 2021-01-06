@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { StorageService } from 'src/app/@Core/storage-service/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +8,14 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  // searchIcon = faSearch;
-
-  ukFlag = 'assets/pictures/uk.png';
-  egFlag = 'assets/pictures/eg.png';
-
   locale: string;
 
-  constructor(private translateService: TranslateService) {}
+  currentDate = new Date();
+
+  constructor(
+    private translateService: TranslateService,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
     this.locale = this.translateService.currentLang;
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit {
   private onLangChange(): void {
     this.translateService.onLangChange.subscribe(langObj => {
       this.locale = langObj.lang;
+      this.storageService.AppLang = langObj.lang;
 
       this.changeLayoutDirection();
     });
