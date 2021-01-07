@@ -1,5 +1,25 @@
 {
   "allRightsReserved": "جميع الحقوق محفوظة",
   "arabic": "عربي",
-  "english": "English"
+  "english": "English",
+  "profile": "الملف الشخصي",
+  "accountSettings": "اعدادات الحساب",
+  "logout": "تسجيل الخروج",
+  "searchEmployees": "البحث عن الموظفين",
+  "addEmployee": "اضافة موظف",
+  "dummyLink": "رابط وهمي",
+  "add": "اضافة",
+  "employeeName": "اسم الموظف",
+  "department": "القسم",
+  "employeeCode": "كود الموظف",
+  "birthdate": "تاريخ الميلاد",
+  "gender": "النوع",
+  "male": "ذكر",
+  "female": "انثى",
+  "search": "بحث",
+  "clear": "مسح",
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "positive": "القيمة يجب ان تكون رقم موجب"
+  }
 }

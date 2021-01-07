@@ -12,18 +12,24 @@ export class LayoutComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.setActiveTab();
+    this.checkURL();
   }
 
-  private setActiveTab() {
+  private checkURL() {
+    this.setActiveTab(this.router.url);
+
     this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
-        if (e.urlAfterRedirects === '/layout/search-employee') {
-          this.currentActive = 0;
-        } else {
-          this.currentActive = 1;
-        }
+        this.setActiveTab(e.urlAfterRedirects);
       }
     });
+  }
+
+  private setActiveTab(URL: string) {
+    if (URL === '/layout/search-employee') {
+      this.currentActive = 0;
+    } else {
+      this.currentActive = 1;
+    }
   }
 }
